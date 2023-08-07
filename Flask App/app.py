@@ -29,15 +29,13 @@ def index():
     else:
         curr_chat_id = row[0] + 1
     con.close()
-    dialog = ""
+    dialog = []
     if request.method == 'POST':
         user_input = request.get_json()
-        if dialog != "":
-            dialog += "\n"
-        dialog += "Human: " + user_input['user_dialog']
+        dialog.append(("Human", user_input['user_dialog']))
         res = {}
         output = RAG_model.generate(dialog)
-        dialog += "\nAI: " + output
+        dialog.append(("AI", output))
         res['output'] = output
         con = sqlite3.connect('sqldb.db')
         cur = con.cursor()
@@ -46,7 +44,7 @@ def index():
         con.close()
         return jsonify(res), 200
     if request.method == 'DELETE':
-        dialog = ""
+        dialog.clear()
         curr_chat_id += 1
     return render_template('index.html')
 
