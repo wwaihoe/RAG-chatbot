@@ -1,7 +1,7 @@
 import os
 
 #INSERT HUGGINGFACE TOKEN
-HUGGINGFACEHUB_API_TOKEN = "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"
+HUGGINGFACEHUB_API_TOKEN = input("Enter HuggingFace token: ")
 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGINGFACEHUB_API_TOKEN
 
@@ -93,6 +93,7 @@ converseqa = load_qa_chain(
 
 #generate function
 def generate(dialog):
+    print(dialog)
     input_query = dialog[-1][1]
     chat_hist = ""
     if len(dialog) > 1:

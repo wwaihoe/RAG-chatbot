@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, session
 import RAG_model, db, sqlite3
 
 def create_app():
@@ -11,6 +11,8 @@ app.config.update(
     DATABASE = 'sqldb.db',
     TEMPLATES_AUTO_RELOAD = True
 )
+
+app.secret_key = b'e^+k"WGm)A?APb,wZbqK4a`24q9.%$'
 
 def page_not_found(e):
   return render_template('404.html'), 404
@@ -29,13 +31,14 @@ def index():
     else:
         curr_chat_id = row[0] + 1
     con.close()
-    dialog = []
     if request.method == 'POST':
         user_input = request.get_json()
-        dialog.append(("Human", user_input['user_dialog']))
+        session['dialog'].append(("Human", user_input['user_dialog']))
+        session.modified = True
         res = {}
-        output = RAG_model.generate(dialog)
-        dialog.append(("AI", output))
+        output = RAG_model.generate(session['dialog'])
+        session['dialog'].append(("AI", output))
+        session.modified = True
         res['output'] = output
         con = sqlite3.connect('sqldb.db')
         cur = con.cursor()
@@ -44,7 +47,8 @@ def index():
         con.close()
         return jsonify(res), 200
     if request.method == 'DELETE':
-        dialog.clear()
+        session['dialog'].clear()
+        session.modified = True
         curr_chat_id += 1
     return render_template('index.html')
 
