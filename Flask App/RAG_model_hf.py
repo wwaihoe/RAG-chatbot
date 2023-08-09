@@ -93,7 +93,6 @@ converseqa = load_qa_chain(
 
 #generate function
 def generate(dialog):
-    print(dialog)
     input_query = dialog[-1][1]
     chat_hist = ""
     if len(dialog) > 1:

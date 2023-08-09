@@ -1,58 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RAG Chatbot</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">  
-  </head>
 
-  <body>
-    <header>
-        <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand h1" href="/">RAG DEMO</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle h2 fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Chat
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/">RAG Chatbot</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active h2 fs-5" href="/info" aria-current="page">Info</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-</header>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAG Chatbot</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
 
-<main class="flex-shrink-0">
-  <div class="container">
-    <br>
-    <h2 class="mt-5">RAG</h2>
-    <p class="lead">
-      Retrieval-Augmented Generation
-      Instead of using only a fine-tuned language model to generate the responses, a pre-trained language model combined with a document retriever can be used. This model, called a Retrieval-Augmented Generation model (RAG), first retrieves documents that are relevant to the input text from a provided dataset using a similarity search on the embeddings of the texts. Then it feeds these documents to the language model to generate a response which is relevant and properly worded.
-      <br>
-      <a href="https://arxiv.org/abs/2005.11401">RAG research paper</a>
-      <br>
-      <br>
-      Model in this demo includes retriever models/vector stores for the Lenovo ThinkPad Gen 2 User Guide and the Epson L1210 Series Printer User Guide.
-    </p>
-  </div>
-</main>
+<body>
+  <header>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand h1" href="/">RAG DEMO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle h2 fs-5" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Chat
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/">RAG Chatbot</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active h2 fs-5" href="/info" aria-current="page">Info</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-<script src="static/scripts.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
+  <main class="flex-shrink-0">
+    <div class="container">
+      <br>
+      <h2 class="mt-5">RAG</h2>
+      <p class="lead">
+        Retrieval-Augmented Generation
+        Instead of using only a fine-tuned language model to generate the responses, a pre-trained language model
+        combined with a document retriever can be used. This model, called a Retrieval-Augmented Generation model (RAG),
+        first retrieves documents that are relevant to the input text from a provided dataset using a similarity search
+        on the embeddings of the texts. Then it feeds these documents to the language model to generate a response which
+        is relevant and properly worded.
+        <br>
+        <a href="https://arxiv.org/abs/2005.11401">RAG research paper</a>
+        <br>
+        <br>
+        Model in this demo includes retriever models/vector stores for the Lenovo ThinkPad Gen 2 User Guide and the
+        Epson L1210 Series Printer User Guide.
+      </p>
+    </div>
+  </main>
+
+  <script src="static/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

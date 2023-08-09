@@ -1,4 +1,4 @@
-async function appendResponse(){
+async function appendResponse(ref){
   var chat_field = document.getElementById("chat-input");
   var user_input = chat_field.value;
   var html_data = '';
@@ -21,7 +21,7 @@ async function appendResponse(){
   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
   Generating response...
   `;
-  const response = await fetch("/", {
+  const response = await fetch(ref, {
     method: "POST", 
     headers: {
       "Content-Type": "application/json"
@@ -67,10 +67,10 @@ function chatEnterKey(event){
   }
 }
 
-async function resetChat(){
+async function resetChat(ref){
   var chat_field = document.getElementById("chat-input");
   chat_field.disabled = true;
-  const response = await fetch("/", {
+  const response = await fetch(ref, {
     method: "DELETE", 
     headers: {
       "Content-Type": "application/json"
@@ -96,8 +96,8 @@ async function resetChat(){
   chat_field.select();
 }
 
-function clearChat(){
-  resetChat();
+function clearChat(ref){
+  resetChat(ref);
   var text_list = document.getElementById("list-group");
   text_list.innerHTML = '';
 }

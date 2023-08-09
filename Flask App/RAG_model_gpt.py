@@ -1,7 +1,7 @@
 import os
 
 #INSERT OPENAI_API_KEY
-OPENAI_API_KEY = input("Enter OpenAI API Key")
+OPENAI_API_KEY = input("Enter OpenAI API Key: ")
 
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
@@ -44,8 +44,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline, PreTrain
 from langchain.llms import HuggingFacePipeline
 
 #load model using OpenAI API
-from langchain.llms import OpenAI
-llm = OpenAI(model_name="gpt-3.5-turbo")
+from langchain.chat_models import ChatOpenAI
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
 
 
 #load zero-shot classification model
@@ -90,7 +90,6 @@ converseqa = load_qa_chain(
 
 #generate function
 def generate(dialog):
-    print(dialog)
     input_query = dialog[-1][1]
     chat_hist = ""
     if len(dialog) > 1:

@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, jsonify, session
-import RAG_model_hf, RAG_model_gpt, db, sqlite3
+import RAG_model_gpt, RAG_model_hf, db, sqlite3
 
 def create_app():
     app = Flask(__name__, template_folder="templates")
@@ -31,6 +31,9 @@ def index():
     else:
         curr_chat_id = row[0] + 1
     con.close()
+    if 'dialog' not in session:
+        session['dialog'] = []
+        session.modified = True
     if request.method == 'POST':
         user_input = request.get_json()
         session['dialog'].append(("Human", user_input['user_dialog']))
@@ -42,7 +45,7 @@ def index():
         res['output'] = output
         con = sqlite3.connect('sqldb.db')
         cur = con.cursor()
-        cur.execute("INSERT INTO chat (author_id, chatbot, chat_id, query, response) values (?, ?, ?, ?, ?)", (0, "RAG" , curr_chat_id, user_input['user_dialog'], output))
+        cur.execute("INSERT INTO chat (author_id, chatbot, chat_id, query, response) values (?, ?, ?, ?, ?)", (0, "RAG_gpt" , curr_chat_id, user_input['user_dialog'], output))
         con.commit()
         con.close()
         return jsonify(res), 200
@@ -53,7 +56,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/hf', methods = ['POST', 'GET', 'DELETE'])
-def index():
+def hf():
     con = sqlite3.connect('sqldb.db')
     cur = con.cursor()
     curr_chat_id = 0
@@ -64,23 +67,26 @@ def index():
     else:
         curr_chat_id = row[0] + 1
     con.close()
+    if 'dialog_hf' not in session:
+        session['dialog_hf'] = []
+        session.modified = True
     if request.method == 'POST':
         user_input = request.get_json()
-        session['dialog'].append(("Human", user_input['user_dialog']))
+        session['dialog_hf'].append(("Human", user_input['user_dialog']))
         session.modified = True
         res = {}
         output = RAG_model_hf.generate(session['dialog'])
-        session['dialog'].append(("AI", output))
+        session['dialog_hf'].append(("AI", output))
         session.modified = True
         res['output'] = output
         con = sqlite3.connect('sqldb.db')
         cur = con.cursor()
-        cur.execute("INSERT INTO chat (author_id, chatbot, chat_id, query, response) values (?, ?, ?, ?, ?)", (0, "RAG" , curr_chat_id, user_input['user_dialog'], output))
+        cur.execute("INSERT INTO chat (author_id, chatbot, chat_id, query, response) values (?, ?, ?, ?, ?)", (0, "RAG_hf" , curr_chat_id, user_input['user_dialog'], output))
         con.commit()
         con.close()
         return jsonify(res), 200
     if request.method == 'DELETE':
-        session['dialog'].clear()
+        session['dialog_hf'].clear()
         session.modified = True
         curr_chat_id += 1
     return render_template('hf.html')
