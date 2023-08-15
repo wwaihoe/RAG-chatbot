@@ -49,11 +49,12 @@ User guides for both products were used as the knowledge base for document retri
 3. Click Change settings that are currently unavailable at the top.
 4. If prompted by User Account Control (UAC), click Yes.
 5. Clear the Turn on fast startup check box, and then click Save changes.
+
 I hope this helps! Let me know if you have any other questions.
 
 **C.(Multi-retriever with Epson printer user guide)**\
 **User:** How do I update my printer's firmware?\
-**Bot:** To update your printer's firmware, you need to make sure that your printer and computer are connected and that your computer is connected to the internet. Then, start EPSON Software Updater and update the applications or firmware. It's important not to turn off the computer or printer until the update is complete to avoid any malfunctions. If you cannot find the application you want to update in the list, you should check for the latest versions of the applications on your local Epson website.\
+**Bot:** To update your printer's firmware, you need to make sure that your printer and computer are connected and that your computer is connected to the internet. Then, start EPSON Software Updater and update the applications or firmware. It's important not to turn off the computer or printer until the update is complete to avoid any malfunctions. If you cannot find the application you want to update in the list, you should check for the latest versions of the applications on your local Epson website.
 
 ### Inclusion of zero-shot classification
 An additional step in the pipeline to classify the user's query using zero-shot classification was added to determine which tool to use to generate the output.\
