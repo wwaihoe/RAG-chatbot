@@ -39,7 +39,7 @@ User guides for both products were used as the knowledge base for document retri
 4. If prompted by User Account Control (UAC), click Yes.
 5. Clear the Turn on fast startup check box, and then click Save changes.
 
-**B.(with memory)**\
+**B.(Conversational with memory)**\
 **User:** Hi\
 **Bot:** Hello! How can I assist you today?\
 **User:** How do I disable fast startup on my Lenovo thinkpad?\
