@@ -79,7 +79,7 @@ Please note that if you haven't set a supervisor password, you'll need to contac
 ## Flask App
 Created a web app using Flask for a demonstration of the RAG chat models.
 ![image](https://github.com/wwaihoe/RAG-chatbot/assets/91514179/4e0def7b-7915-4995-9e0d-234b6b6999d5)
-UI was created with BootStrap.
+UI was created with BootStrap.\
 Local database to store chat logs was implemented using SQLite.
 
 ### Running the app
