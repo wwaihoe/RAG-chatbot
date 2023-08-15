@@ -30,7 +30,7 @@ User guides for both products were used as the knowledge base for document retri
 
 **Sample outputs:**\
 **A.(with Lenovo ThinkPad user guide)**\
-**User:** How to disable fast startup on my thinkpad?
+**User:** How to disable fast startup on my thinkpad?\
 **Bot:** To disable Fast Startup on your ThinkPad, follow these steps:
 
 1. Go to Control Panel and view by Large icons or Small icons.
