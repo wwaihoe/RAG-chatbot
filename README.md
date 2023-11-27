@@ -15,8 +15,7 @@ Using a RAG model would help save time and resources on model training as it doe
 - Large language model: [OpenAI gpt-3.5-turbo](https://platform.openai.com/) (Paid API) OR [tiiuae/falcon-7b-instruct](https://huggingface.co/tiiuae/falcon-7b-instruct) (Open source model)
 - Retriever model from Chroma vector store
 4. Using a custom prompt, generate output based on query and document(s) retrieved from vector store.
-- Prompt: "You are a chatbot having a conversation with a human.
-Given the following context, answer the question. If the context does not provide sufficient context to answer the question, say "Sorry, I do not have enough knowledge to answer the question.".
+Prompt: "You are a chatbot having a conversation with a human. Given the following context, answer the question. If the context does not provide sufficient context to answer the question, say "Sorry, I do not have enough knowledge to answer the question.".
 
 Context:
 {context}
@@ -73,8 +72,7 @@ Tools included: Lenovo ThinkPad laptop RAG model, Epson printer RAG model, Chat 
 4. Type the current supervisor password in the Enter Current Password field. Then, leave the Enter New Password field blank, and press Enter twice.
 5. In the Changes have been saved window, press Enter.
 6. Press F10 to save changes and exit the UEFI BIOS menu.
-
-Please note that if you haven't set a supervisor password, you'll need to contact a Lenovo authorized service provider to have the system management password removed.
+7. Please note that if you haven't set a supervisor password, you'll need to contact a Lenovo authorized service provider to have the system management password removed.
 
 ## Flask App
 Created a web app using Flask for a demonstration of the RAG chat models.
