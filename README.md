@@ -49,8 +49,7 @@ User guides for both products were used as the knowledge base for document retri
 3. Click Change settings that are currently unavailable at the top.
 4. If prompted by User Account Control (UAC), click Yes.
 5. Clear the Turn on fast startup check box, and then click Save changes.
-
-I hope this helps! Let me know if you have any other questions.
+6. I hope this helps! Let me know if you have any other questions.
 
 **C.(Multi-retriever with Epson printer user guide)**\
 **User:** How do I update my printer's firmware?\
